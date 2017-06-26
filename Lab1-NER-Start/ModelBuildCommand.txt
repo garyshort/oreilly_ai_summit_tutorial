@@ -1,0 +1,1 @@
+java -cp C:\Users\gashort\Documents\Presentations\AISummitTutorial\Lab1-NER-Start\stanford-ner-2017-06-09\lib\* edu.stanford.nlp.ie.crf.CRFClassifier -prop custom.prop

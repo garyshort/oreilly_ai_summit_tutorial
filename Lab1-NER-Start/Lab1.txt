@@ -1,0 +1,19 @@
+1. Download the file html2text.py from .\Lab1-NER-Start
+2. OPTIONAL - Edit the url variable to a url of your own choice.
+3. Run the command python html2text.py >> out.txt.
+4. The above command will create a txt file with one word from the content of url on each line.
+5. Open out.txt in a text editor of your choice.
+6. Save out.txt as <your_choice_of_file_name>.tsv
+7. For each word that you DO NOT want the NER to recognise, append <tab> O.
+8. For each word that you DO want the NER to recognise, append <tab> <entity_name>.
+9. See .\Lab1-NER-Start\TrainingTextExample.tsv for an example.
+10. Open .\Lab1-NER-Start\custom.prop and edit the trainFile parameter to point to the file you created at item 6 above.
+11. Save the .\Lab1-NER-Start\custom.prop file.
+12. Open the stanford-ner-2017-06-09 directory and copy the file stanford-ner.jar from the root to the lib directory.
+12. From the command line, execute the command: java -cp <path_2_NER_3.8.0>\stanford-ner-2017-06-09\lib\* edu.stanford.nlp.ie.crf.CRFClassifier -prop custom.prop.
+13. Your custom model should be created.
+14. Open .\Lab1-NER-Start\Demo\NerDemo\NerDemo.sln.
+15. Modify the classifierDir variable to point to the directory containing your NER model.
+16. Modify the selectedClassifier varialbe to point to your custom model.
+17. Modify the file read command to read in text of your choice.
+18. Execute the code and find the parsed text in the ModelOutputDirectory.
