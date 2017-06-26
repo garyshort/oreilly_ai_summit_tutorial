@@ -1,0 +1,3300 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Azure.Graphs</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Azure.Graphs.Common.CollectionType">
+            <summary>
+            The type of the collection provision to run DocumentDB graph Engine
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Common.CollectionType.Standard">
+            <summary>
+            Standard non-partitioned collection
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Common.CollectionType.Partitioned">
+            <summary>
+            Partitioned collection
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Common.CollectionType.Undefined">
+            <summary>
+            Type not provided
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.ExecutionStatistics">
+            <summary>
+            Statistics associated with an execution context or scope.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.ExecutionStatistics.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Common.ExecutionStatistics"/> class,
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.ExecutionStatistics.Aggregate(Microsoft.Azure.Graphs.Common.ExecutionStatistics)">
+            <summary>
+            Aggregates statistics based on data from an inner scope.
+            </summary>
+            <param name="statistics">Execution statistics</param>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionStatistics.QueriesSinglePartition">
+            <summary>
+            Total number of document db storage queries that targeted a single partition.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionStatistics.QueriesCrossPartition">
+            <summary>
+            Total number of document db storage queries that were cross partition.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionStatistics.QueryRequestCharge">
+            <summary>
+            Total request charge associated with executing document db queries.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionStatistics.DocumentsAdded">
+            <summary>
+            Total number of documents added to document db storage.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionStatistics.DocumentsDeleted">
+            <summary>
+            Total number of documents deleted from document db storage.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionStatistics.DocumentsReplaced">
+            <summary>
+            Total number of documents repalced from document db storage.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionStatistics.TraversalExecutionMs">
+            <summary>
+            Total graph command execution time - creating the traversal and executing the command (in miliseconds).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionStatistics.TraversalIterationMs">
+            <summary>
+            Total graph command execution time - iterating over the results of the traversal (in miliseconds).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionStatistics.TraversalIterations">
+            <summary>
+            Total number of iterations while enumerating the results of graph traversal.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.GraphNotYetImplementedException">
+            <summary>
+            Inherits GraphException and is used to throw error if a runtime operation (physical execution operator)
+            fails due to wrong objects being processed during traversal. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.GraphSerializeException">
+            <summary>
+            Inherits GraphException and is used to throw error if we cannot serialize a response. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.GraphMalformedException">
+            <summary>
+            Inherits GraphException and is used to throw error if we an malformed request from user. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.GraphConfigurationException">
+            <summary>
+            Inherits GraphException and is used to throw error if an invalid argument or configuration is detected. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.GraphTimeoutException">
+            <summary>
+            Inherits GraphException and is used to throw error if we fail to compile the gremlin script provided by user. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.GraphUnexpectedException">
+            <summary>
+            Inherits GraphException and is used to throw an error when an unexpected exception or condition is encountered (server error). 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.GraphRuntimeException">
+            <summary>
+            Inherits GraphException and is used to throw error if a runtime operation (physical execution operator)
+            fails due to wrong objects being processed during traversal. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.GraphUnauthorizedException">
+            <summary>
+            Inherits GraphException and is used to throw 401 Unauthorized errors. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.GraphCompileException">
+            <summary>
+            Inherits GraphException and is used to throw error if we fail to compile the gremlin script provided by user. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.GraphSyntaxException">
+            <summary>
+            Inherits GraphException and throws if the gremlin string provided has syntax error. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.ExecutionContext">
+            <summary>
+            A logical frame for each instance of an execution scope
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.ExecutionContext.#ctor(System.String,System.String,System.Nullable{System.Guid})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Common.ExecutionContext"/> class,
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionContext.Name">
+            <summary>
+            Gets or sets information about the client that requested the exectuion.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionContext.OperationName">
+            <summary>
+            Gets or sets information about the client operation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionContext.RequestId">
+            <summary>
+            Gets the unique id associated with the requested exectuion
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionContext.Statistics">
+            <summary>
+            Execution statistics associated with current execution context
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.ExecutionFrame">
+            <summary>
+            A logical frame for each instance of an execution scope
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.ExecutionFrame.#ctor(System.String,Microsoft.Azure.Graphs.Common.ExecutionContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Common.ExecutionFrame"/> class,
+            </summary>
+            <param name="name">Code frame name that identifies a code section.</param>
+            <param name="context">Context in which code is executed, by default inherited from parent frame</param>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionFrame.Name">
+            <summary>
+            Gets the execution scope's name (given by the code frame)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionFrame.Context">
+            <summary>
+            Execution context associated with the current frame.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.ExecutionScope">
+            <summary>
+            Class used for tracing via code frames the current execution scope
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Common.ExecutionScope.outsideFrame">
+            <summary>
+            Returned for scenarios when code is run outside any Execution Scope (caller does not set it)
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Common.ExecutionScope.stopWatch">
+            <summary>
+            Private member to execution time (UTC time) for the code section.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Common.ExecutionScope.frameName">
+            <summary>
+            Name of the frame associated with this execution scope.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.ExecutionScope.#ctor(System.String,Microsoft.Azure.Graphs.Common.ExecutionContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Common.ExecutionScope"/> class
+            </summary>
+            <param name="codeframe">Used for any code for which we want to collect statistics, name associated with the statistics</param>
+            <param name="context">Optional, used only for top level scopes under which we want to execute a graph query (shared across all frames)</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.ExecutionScope.Dispose">
+            <summary>
+            This code is added to correctly implement the disposable pattern. 
+            Part of IDisposable interface.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionScope.ElapsedMiliseconds">
+            <summary>
+            Return miliseconds elapsed since the start of the execution scope
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.ExecutionScope.Frame">
+            <summary>
+            Gets the current logical frame containing information regarding the innermost code frame associated
+            with the current chain of sync/async calls, or null if a execution scope was not created for the current
+            execution stack.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.ExecutionScope.BeginCodeSection(Microsoft.Azure.Graphs.Common.ExecutionFrame)">
+            <summary>
+            Performs actions specific to entering an execution scope
+            </summary>
+            <param name="frame">code frame corresponding to a new execution scope frame</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.ExecutionScope.EndCodeSection">
+            <summary>
+            Performs actions specific to exiting an execution scope
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.ExecutionScope.Dispose(System.Boolean)">
+            <summary>
+            Helper used by disposable pattern
+            </summary>
+            <param name="disposing">True if called by Dispose() itself, False if called from Finalize()</param>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Common.ExecutionScope.disposedValue">
+            <summary>
+            Private flag used to detect redundant calls.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.NativeQueryType">
+            <summary>
+            Ennumerates the type of native queries we issue from graph client
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.TraceEventSource">
+            <summary>
+            Event source used for generating ETW events specfic to Azure Graph.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Common.TraceEventSource.Current">
+            <summary>
+            Current field
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Common.TraceEventSource.GraphHealthEventId">
+            <summary>
+            EventId fields
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraceEventSource.#cctor">
+            <summary>
+            Initializes static members of the <see cref="T:Microsoft.Azure.Graphs.Common.TraceEventSource" /> class. 
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraceEventSource.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:Microsoft.Azure.Graphs.Common.TraceEventSource" /> class from being created. 
+            Instance constructor is private to enforce singleton semantics
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraceEventSource.TraceHealthEvent(System.String,System.String,System.String,System.Int16,System.Double,System.Double)">
+            <summary>
+            TraceServiceEvent method dispatches tracing the event to the appropriate Event method.
+            This is required since the event must match the signature of the function for each event.
+            </summary>
+            <param name="account"></param>
+            <param name="database"></param>
+            <param name="collection"></param>
+            <param name="statusCode"></param>
+            <param name="duration"></param>
+            <param name="requestCharge"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraceEventSource.TraceMessageEvent(System.UInt32,System.String)">
+            <summary>
+            TraceServiceEvent method dispatches tracing the event to the appropriate Event method.
+            This is required since the event must match the signature of the function for each event.
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraceEventSource.TraceRuntimeEvent(System.Diagnostics.TraceLevel,System.UInt32,System.String,System.String,System.String,System.String,System.Guid,System.String,System.String,System.String)">
+            <summary>
+            TraceServiceEvent method dispatches tracing the event to the appropriate Event method.
+            This is required since the event must match the signature of the function for each event.
+            </summary>
+            <param name="level">severity of the event</param>
+            <param name="code">(error) code associated with the event</param>
+            <param name="region">federation or region where the code is depoloyed</param>
+            <param name="cluster">cluster or app service environment where the code is deployed</param>
+            <param name="node">cluster node or app service instance running the code</param>
+            <param name="client">client id requesting the graph command</param>
+            <param name="request">request id provided by the gremlin client</param>
+            <param name="operation">operation triggering the event</param>
+            <param name="frame">current execution scope frame in which the event was fired</param>
+            <param name="message">message associated with the event</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraceEventSource.TraceSessionEvent(System.String,System.String,System.Guid,System.Guid,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            TraceSessionEvent method dispatches tracing the event to the appropriate Event method.
+            This is required since the event must match the signature of the function for each event.
+            </summary>
+            <param name="client">client id requesting the graph command</param>
+            <param name="category">category describing the type of session event</param>
+            <param name="connection">connection between a gremlin client and the service</param>
+            <param name="request">request id provided by the gremlin client</param>
+            <param name="receiver">description for receiver</param>
+            <param name="worker">compute status</param>
+            <param name="sender">description for sender</param>
+            <param name="load">overall indicator for resource load</param>
+            <param name="cpu">cpu associated with the load</param>
+            <param name="memory">memory usage associated with the load</param>
+            <param name="input">information regarding input</param>
+            <param name="output">information regarding output</param>
+            <param name="errors">information regarding errors</param>
+            <param name="receive">information regarding received load (e.g. size of receive queue)</param>
+            <param name="ready">how many workers are currently ready to compute, but not yet running</param>
+            <param name="compute">information regarding compute load</param>
+            <param name="done">how many workers are currently done, but thier results are not yet in the queue</param>
+            <param name="send">information regarding send load (e.g. size of send queue)</param>
+            <param name="message">message associated with the event</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraceEventSource.SetProviderContext">
+            <summary>
+            Helper method that setup-s event provider context that will be used during next record's tracing
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraceEventSource.HealthEvent(System.String,System.String,System.String,System.Int16,System.Double,System.Double)">
+            <summary>
+            Fire an ETW health event with schema similar with the one defined in \Product\Health\Common\HealthEventSource.cs
+            </summary>
+            <param name="databaseAccount"></param>
+            <param name="databaseName"></param>
+            <param name="collectionName"></param>
+            <param name="statusCode"></param>
+            <param name="duration"></param>
+            <param name="requestCharge"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraceEventSource.MessageEvent(System.UInt32,System.String)">
+            <summary>
+            Fire an ETW logger event with schema similar with the one defined in \Product\Health\Common\HealthEventSource.cs
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraceEventSource.RuntimeEvent(System.String,System.UInt32,System.UInt32,System.String,System.String,System.String,System.String,System.Guid,System.String,System.String,System.String)">
+            <summary>
+            Fire an ETW health event with schema similar with the one defined in \Product\Health\Common\HealthEventSource.cs
+            </summary>
+            <param name="utc">information regarding timestamp associated with event</param>
+            <param name="level">severity of the event</param>
+            <param name="code">(error) code associated with the event</param>
+            <param name="region">federation or region where the code is depoloyed</param>
+            <param name="cluster">cluster or app service environment where the code is deployed</param>
+            <param name="node">cluster node or app service instance running the code</param>
+            <param name="client">client id requesting the graph command</param>
+            <param name="request">request id provided by the gremlin client</param>
+            <param name="operation">operation triggering the event</param>
+            <param name="frame">current execution scope frame in which the event was fired</param>
+            <param name="message">message associated with the event</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraceEventSource.SessionEvent(System.String,System.String,System.Guid,System.Guid,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Fire an ETW event describing state related with a session (graph connection, request) between the gremlin client and the service
+            </summary>
+            <param name="client">client id requesting the graph command</param>
+            <param name="category">category describing the type of session event</param>
+            <param name="connection">connection between a gremlin client and the service</param>
+            <param name="request">request id provided by the gremlin client</param>
+            <param name="receiver">description for receiver</param>
+            <param name="worker">compute status</param>
+            <param name="sender">description for sender</param>
+            <param name="load">overall indicator for resource load</param>
+            <param name="cpu">cpu associated with the load</param>
+            <param name="memory">memory usage associated with the load</param>
+            <param name="input">information regarding input</param>
+            <param name="output">information regarding output</param>
+            <param name="errors">information regarding errors</param>
+            <param name="receive">information regarding received load (e.g. size of receive queue)</param>
+            <param name="ready">how many workers are currently ready to compute, but not yet running</param>
+            <param name="compute">information regarding compute load</param>
+            <param name="done">how many workers are currently done, but thier results are not yet in the queue</param>
+            <param name="send">information regarding send load (e.g. size of send queue)</param>
+            <param name="message">message associated with the event</param>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.Logger">
+            <summary>
+            Utility class used for tracing informational messages and errors.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.Logger.EnabledTraceTargets">
+            <summary>
+            Configures current trace targets (bit mask).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.Logger.EnabledVerboseFlags">
+            <summary>
+            Configure which verbose traces are filtered.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Common.Logger.EnabledTracingLevel">
+            <summary>
+            Configures minimum level for which to emit traces.
+            0 = off (default)
+            N = trace messages at specified or more important severity levels
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.Logger.LogException(System.Exception)">
+            <summary>
+            Logs an error message.
+            </summary>
+            <param name="exception">Exception to be logged</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.Logger.LogError(System.String,System.Object[])">
+            <summary>
+            Logs an error message.
+            </summary>
+            <param name="messageFormat">Format of error message to be logged.</param>
+            <param name="args">Message arguments</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.Logger.LogWarning(System.String,System.Object[])">
+            <summary>
+            Logs a warning message.
+            </summary>
+            <param name="messageFormat">Format of warning message to be logged.</param>
+            <param name="args">Arguments of the message format</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.Logger.LogInformation(System.String,System.Object[])">
+            <summary>
+            Logs an informational message.
+            </summary>
+            <param name="messageFormat">Format of informational message to be logged.</param>
+            <param name="args">Message arguments</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.Logger.LogVerbose(Microsoft.Azure.Graphs.TraceArea,System.String,System.Object[])">
+            <summary>
+            Logs a verbose message (filtered based on configured EnabledVerboseFlags).
+            </summary>
+            <param name="flags"></param>
+            <param name="messageFormat">Format of verbose message to be logged.</param>
+            <param name="args">Arguments of the message format</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.Logger.LogDebug(Microsoft.Azure.Graphs.TraceArea,System.String,System.Object[])">
+            <summary>
+            Debug only method. Code needs to be compiled with /d:DEBUG flag and Verbose logging has to be set
+            </summary>
+            <param name="flags"></param>
+            <param name="messageFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.Logger.LogVerbose(System.String,System.Object[])">
+            <summary>
+            Logs a verbose message (unfiltered).
+            </summary>
+            <param name="messageFormat">Format of verbose message to be logged.</param>
+            <param name="args">Arguments of the message format</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.Logger.LogMessage(System.Diagnostics.TraceLevel,System.String,System.Object[])">
+            <summary>
+            Basic support for tracing a message
+            </summary>
+            <param name="level">severity for the message</param>
+            <param name="messageFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.Logger.LogMessage(System.Diagnostics.TraceLevel,System.UInt32,System.String,System.Object[])">
+            <summary>
+            Basic support for tracing a message
+            </summary>
+            <param name="level">severity for the message</param>
+            <param name="code">code associated with the message</param>
+            <param name="messageFormat"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.Logger.IsTraceEnabled(System.Diagnostics.TraceLevel)">
+            <summary>
+            Checks if tracing is enabled for a specified given level (there must be at least one type of trace target enabled also)
+            </summary>
+            <param name="level"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.Logger.IsTraceEnabled(Microsoft.Azure.Graphs.TraceArea)">
+            <summary>
+            Checks if tracing is enabled for a specified given level (there must be at least one type of trace target enabled also)
+            </summary>
+            <param name="traceFlags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.Logger.LogInternalConsole(System.Diagnostics.TraceLevel,System.String)">
+            <summary>
+            Traces a message to Console.
+            </summary>
+            <param name="level"></param>
+            <param name="message"></param>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.TraversalScriptMono">
+            <summary>
+            Represents a C# traversal script that can be compiled and executed against the Mono compiler.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraversalScriptMono.#ctor(System.String)">
+            <summary>
+            Initializes an instance of <see cref="T:Microsoft.Azure.Graphs.Common.TraversalScriptMono" />.
+            </summary>
+            <param name="graphExpression">The graph expression.</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraversalScriptMono.CompileAsync">
+            <summary>
+            Compiles the traversal script and caches the in-memory assembly.
+            </summary>
+            <returns>An async Task instance.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraversalScriptMono.CreateTraversalAsync(Microsoft.Azure.Graphs.GraphCommand)">
+            <summary>
+            Creates a local traversal by executing a dynamic traversal script.
+            </summary>
+            <param name="graphCommand">The instance of <see cref="T:Microsoft.Azure.Graphs.GraphCommand"/> to create the traversal on.</param>
+            <remarks>
+            Invoking this method does not execute the underlying DocumentDB query/queries that map to the graph traversal.
+            Query execution is deferred until the returned instance of <see cref="T:System.Collections.Generic.IEnumerable`1"/> is enumerated. 
+            On initial enumeration, the results may be queried entirely and cached, or each result row will be paged, depending on 
+            the kind of traversal script that was compiled.
+            </remarks>
+            <returns>An async instance of IEnumerable that represents the results.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Common.TraversalScriptEngine">
+            <summary>
+            Represents a script engine that can take raw traversal queries (eg. gremlin queries) and 
+            convert them to C# traversal scripts which can be compiled and executed.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraversalScriptEngine.CreateScriptFromGremlinMono(System.String)">
+            <summary>
+            Creates a <see cref="T:Microsoft.Azure.Graphs.Common.TraversalScriptMono"/> instance given a gremlin script string using Mono compiler.
+            </summary>
+            <param name="gremlinScript">The gremlin script.</param>
+            <returns>Asynchronous task which contains an instance of <see cref="T:Microsoft.Azure.Graphs.Common.TraversalScriptMono"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.TraversalScriptEngine.ConvertGremlinToGraphTraversalCode(System.String)">
+            <summary>
+            Transforms a Gremlin query into a string representing the sequence of
+            equivalent graph traversal operators as they would be written in C#
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Common.GraphJsonCommand.DropAllEdgeProperties(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Drop an edge's all non-reserved properties
+            </summary>
+            <param name="jsonObject"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Common.GraphKeywords.KW_MULTIMODEL_DEFAULT_VERTEX_LABEL">
+            <summary>
+            A native vertex is document in an existing collection. A native vertex is contrasted from a gremlin vertex which are
+            added via gremlin API. A native vertex may not have a "label" property which is mandatory for a gremlin vertex.
+            Following is default label of a native vertex when a "label" is requested for the GraphSon format. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.GraphStatusCode">
+            <summary>
+            Error codes associated with exceptions thrown by the graph library.
+            RFC: http://tinkerpop.apache.org/docs/current/dev/provider/#_graph_driver_provider_requirements
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.GraphStatusCode.Success">
+            <summary>
+            The server successfully processed a request to completion - there are no messages remaining in this stream.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.GraphStatusCode.NoContent">
+            <summary>
+            The server processed the request but there is no result to return (e.g. an Iterator with no elements) - there are no messages remaining in this stream.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.GraphStatusCode.PartialContent">
+            <summary>
+            The server successfully returned some content, but there is more in the stream to arrive - wait for a SUCCESS to signify the end of the stream.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.GraphStatusCode.Unauthorized">
+            <summary>
+            The request attempted to access resources that the requesting user did not have access to.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.GraphStatusCode.Authenticate">
+            <summary>
+            A challenge from the server for the client to authenticate its request.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.GraphStatusCode.MalformedRequest">
+            <summary>
+            The request message was not properly formatted which means it could not be parsed at all or the "op" code was not recognized such that Gremlin Server could properly route it for processing. Check the message format and retry the request.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.GraphStatusCode.InvalidRequestArguments">
+            <summary>
+            The request message was parseable, but the arguments supplied in the message were in conflict or incomplete. Check the message format and retry the request.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.GraphStatusCode.ServerError">
+            <summary>
+            A general server error occurred that prevented the request from being processed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.GraphStatusCode.ScriptEvaluationError">
+            <summary>
+            The script submitted for processing evaluated in the ScriptEngine with errors and could not be processed. Check the script submitted for syntax errors or other problems and then resubmit.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.GraphStatusCode.ServerTimeout">
+            <summary>
+            The server exceeded one of the timeout settings for the request and could therefore only partially responded or did not respond at all.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.GraphStatusCode.ServerSerializationError">
+            <summary>
+            The server was not capable of serializing an object that was returned from the script supplied on the request. Either transform the object into something Gremlin Server can process within the script or install mapper serialization classes to Gremlin Server.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.TraceArea">
+            <summary>
+            Bitmask used to filter what verbose information should be traced.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.TraceTarget">
+            <summary>
+            How the traces should be emited (e.g. Standard .NET Trace, Console Out Print, etc)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.Direction">
+            <summary>
+            <para>
+            The direction of a <see cref="T:Microsoft.Azure.Graphs.Elements.Edge"/>.
+            </para>
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.Direction.Out">
+            <summary>
+            Refers to an outgoing direction.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.Direction.In">
+            <summary>
+            Refers to an incoming direction.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.Direction.Both">
+            <summary>
+            Refers to either direction IN or OUT.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.Edge">
+            <summary>
+            Storage container for edge data.
+            Supports deserialization from GraphSON format.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Edge.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.Edge"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Edge.#ctor(Microsoft.Azure.Graphs.Elements.Edge)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.Edge"/> class.
+            </summary>
+            <param name="Edge">The edge data.</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Edge.#ctor(System.Object,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.Edge"/> class.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="label">The label.</param>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Edge.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Edge.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+            <value>
+            The label.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Edge.InVertexId">
+            <summary>
+            Gets or sets the in vertex identifier.
+            </summary>
+            <value>
+            The in vertex identifier.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Edge.OutVertexId">
+            <summary>
+            Gets or sets the out vertex identifier.
+            </summary>
+            <value>
+            The out vertex identifier.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Edge.InVertexLabel">
+            <summary>
+            Gets or sets the in vertex label.
+            </summary>
+            <value>
+            The in vertex label.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Edge.OutVertexLabel">
+            <summary>
+            Gets or sets the out vertex label.
+            </summary>
+            <value>
+            The out vertex label.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Edge.Properties">
+            <summary>
+            Gets or sets the properties.
+            </summary>
+            <value>
+            The properties.
+            </value>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Edge.GetProperty(System.String)">
+            <summary>
+            Gets a property on the edge, given the property key.
+            </summary>
+            <param name="key">The key of the property.</param>
+            <returns>Property that matches to <paramref name="key"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Edge.GetProperties">
+            <summary>
+            Gets all the propeties on the edge.
+            </summary>
+            <returns>Enumerable of the edges properties.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Edge.AddProperty(System.String,System.Object)">
+            <summary>
+            Adds the property.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <returns>This <see cref="T:Microsoft.Azure.Graphs.Elements.Edge"/> for method chaining.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Edge.Validate">
+            <summary>
+            Validates this instance.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">
+            Edge must have a valid Id.
+            or
+            Edge must have a valid Label.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            Edge must specify InVertexId.
+            or
+            Edge must specify OutVertexId.
+            or
+            Edge must specify InVertexLabel.
+            or
+            Edge must specify OutVertexLabel.
+            </exception>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.EdgeConverter">
+            <summary>
+            A custom Newtonsoft Json deserializer that understands the GraphSON format for <see cref="T:Microsoft.Azure.Graphs.Elements.Edge"/>.
+            </summary>
+            <seealso cref="T:Newtonsoft.Json.JsonConverter" />
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.EdgeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.EdgeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.EdgeConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <returns>
+            <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.GraphSonSerializerConstants">
+            <summary>
+            Constants for graph data serialization.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.GraphSonSerializerConstants.IdKey">
+            <summary>
+            The Json property key for Id.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.GraphSonSerializerConstants.LabelKey">
+            <summary>
+            The Json property key for Label.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.GraphSonSerializerConstants.ValueKey">
+            <summary>
+            The Json property key for Value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.GraphSonSerializerConstants.InVertexKey">
+            <summary>
+            The Json property key for InVertexId.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.GraphSonSerializerConstants.OutVertexKey">
+            <summary>
+            The Json property key for OutVertexId.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.GraphSonSerializerConstants.InVertexLabelKey">
+            <summary>
+            The Json property key for InVertexLabel.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.GraphSonSerializerConstants.OutVertexLabelKey">
+            <summary>
+            The Json property key for OutVertexLabel.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.GraphSonSerializerConstants.InEdgesKey">
+            <summary>
+            The Json property key for InEdges.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.GraphSonSerializerConstants.OutEdgesKey">
+            <summary>
+            The Json property key for OutEdges.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.GraphSonSerializerConstants.PropertiesKey">
+            <summary>
+            The Json property key for Properties.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Elements.GraphSonSerializerConstants.TypeKey">
+            <summary>
+            The Json property key for type.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.Property">
+            <summary>
+            Storage container for a property.
+            Supports deserialization from GraphSON format.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Property.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.Property"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Property.#ctor(System.String,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.Property"/> class.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Property.Key">
+            <summary>
+            Gets or sets the key.
+            </summary>
+            <value>
+            The key.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Property.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>
+            The value.
+            </value>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Property.Equals(Microsoft.Azure.Graphs.Elements.Property)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+            true if the current object is equal to the <paramref name="other" /> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Property.Validate">
+            <summary>
+            Validates this instance.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">
+            Property must have a valid Key.
+            or
+            Property must have a valid Value.
+            </exception>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.PropertyCollection">
+            <summary>
+            An indexed collection of <see cref="T:Microsoft.Azure.Graphs.Elements.Property" />.
+            </summary>
+            <seealso cref="T:System.Collections.ObjectModel.KeyedCollection`2" />
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.PropertyCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.PropertyCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.PropertyCollection.#ctor(System.Collections.Generic.IEnumerable{Microsoft.Azure.Graphs.Elements.Property})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.PropertyCollection"/> class with the specified items.
+            </summary>
+            <param name="items">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> to initialize the collection with.</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.PropertyCollection.TryGetProperty(System.String,Microsoft.Azure.Graphs.Elements.Property@)">
+            <summary>
+            Tries to get the <see cref="T:Microsoft.Azure.Graphs.Elements.Property"/> from the collection.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="property">The query.</param>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.PropertyCollection.AddRange(System.Collections.Generic.IEnumerable{Microsoft.Azure.Graphs.Elements.Property})">
+            <summary>
+            Adds the elements of the specified collection to the end of the <see cref="T:Microsoft.Azure.Graphs.Elements.PropertyCollection" />.
+            </summary>
+            <param name="items">The collection whose elements should be added to the end of the <see cref="T:Microsoft.Azure.Graphs.Elements.PropertyCollection" />. The collection itself cannot be null and it cannot contain elements that are null.</param>
+            <exception cref="T:System.ArgumentNullException">The items cannot be null.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.PropertyCollection.GetKeyForItem(Microsoft.Azure.Graphs.Elements.Property)">
+            <summary>
+            Gets the key for the item.
+            </summary>
+            <param name="item">The item to get the key for.</param>
+            <returns>The key of the item.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.PropertyConverter">
+            <summary>
+            A custom Newtonsoft Json deserializer that understands the GraphSON format for <see cref="T:Microsoft.Azure.Graphs.Elements.Property" />.
+            </summary>
+            <seealso cref="T:Newtonsoft.Json.JsonConverter" />
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.PropertyConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.PropertyConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.PropertyConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <returns>
+            <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.SerializationHelpers">
+            <summary>
+            Graph data serialization helper methods.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.SerializationHelpers.SerializeGraphSon(System.Collections.Generic.IEnumerable{Microsoft.Azure.Graphs.Elements.Vertex})">
+            <summary>
+            Serializes a collection of vertices to GraphSON.
+            </summary>
+            <param name="vertices">The vertices to serialize.</param>
+            <returns>GraphSON formatted serialization of the input vertices.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.SerializationHelpers.SerializeGraphSonFile(System.Collections.Generic.IEnumerable{Microsoft.Azure.Graphs.Elements.Vertex},System.String,System.Boolean)">
+            <summary>
+            Serializes a collection of vertices to a GraphSON file.
+            </summary>
+            <param name="vertices">The vertices.</param>
+            <param name="graphSonFile">The GraphSON file.</param>
+            <param name="overwrite">if set to <c>true</c> [overwrite].</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.SerializationHelpers.DeserializeGraphSon(System.String)">
+            <summary>
+            Deserializes GraphSON into a collection of vertices.
+            </summary>
+            <param name="graphSon">The GraphSON to deserialize.</param>
+            <returns>A collection of vertices from the GraphSON.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.SerializationHelpers.DeserializeGraphSonFile(System.String)">
+            <summary>
+            Deserializes GraphSON within a file into a collection of vertices.
+            </summary>
+            <param name="graphSonFile">The GraphSON file.</param>
+            <returns>A collection of vertices from the GraphSON.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.SerializationHelpers.WriteVertexProperty(Newtonsoft.Json.JsonWriter,Microsoft.Azure.Graphs.Elements.VertexProperty,Newtonsoft.Json.JsonSerializer,System.Boolean)">
+            <summary>
+            Writes the vertex property data.
+            </summary>
+            <remarks>
+            A <see cref="T:Microsoft.Azure.Graphs.Elements.VertexProperty"/> is nested if it is contained within a <see cref="T:Microsoft.Azure.Graphs.Elements.Vertex"/>.
+            </remarks>
+            <param name="writer">The writer.</param>
+            <param name="vertexProperty">The vertex property.</param>
+            <param name="serializer">The serializer.</param>
+            <param name="isNested">if set to <c>true</c> [is nested].</param>
+            <exception cref="T:System.ArgumentNullException">
+            writer
+            or
+            vertexProperty
+            or
+            serializer
+            </exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.SerializationHelpers.WriteEdge(Newtonsoft.Json.JsonWriter,Microsoft.Azure.Graphs.Elements.Edge,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the edge data.
+            </summary>
+            <param name="writer">The writer.</param>
+            <param name="edge">The edge data.</param>
+            <param name="serializer">The serializer.</param>
+            <exception cref="T:System.ArgumentNullException">
+            writer
+            or
+            edge
+            or
+            serializer
+            </exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.SerializationHelpers.WriteProperty(Newtonsoft.Json.JsonWriter,Microsoft.Azure.Graphs.Elements.Property,Newtonsoft.Json.JsonSerializer,System.Boolean)">
+            <summary>
+            Writes the property data.
+            </summary>
+            <remarks>
+            A <see cref="T:Microsoft.Azure.Graphs.Elements.Property"/> is nested if it is contained within a <see cref="T:Microsoft.Azure.Graphs.Elements.VertexProperty"/> or <see cref="T:Microsoft.Azure.Graphs.Elements.Edge"/>.
+            </remarks>
+            <param name="writer">The writer.</param>
+            <param name="property">The property data.</param>
+            <param name="serializer">The serializer.</param>
+            <param name="isNested">if set to <c>true</c> [is nested].</param>
+            <exception cref="T:System.ArgumentNullException">
+            writer
+            or
+            property
+            or
+            serializer
+            </exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.SerializationHelpers.WriteProperties(Newtonsoft.Json.JsonWriter,Microsoft.Azure.Graphs.Elements.PropertyCollection,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the properties.
+            </summary>
+            <param name="writer">The writer.</param>
+            <param name="propertyCollection">The property data collection.</param>
+            <param name="serializer">The serializer.</param>
+            <exception cref="T:System.ArgumentNullException">
+            writer
+            or
+            serializer
+            </exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.SerializationHelpers.ReadVertexEdgeJson(Newtonsoft.Json.JsonReader,Microsoft.Azure.Graphs.Elements.VertexEdge,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the vertex edge data Json.
+            </summary>
+            <param name="reader">The reader.</param>
+            <param name="existingValue">The existing value.</param>
+            <param name="serializer">The serializer.</param>
+            <returns>A <see cref="T:Microsoft.Azure.Graphs.Elements.VertexEdge"/> from the Json.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.SerializationHelpers.ReadEdgeJson(Newtonsoft.Json.JsonReader,Microsoft.Azure.Graphs.Elements.Edge,Newtonsoft.Json.JsonSerializer,System.Boolean)">
+            <summary>
+            Reads the edge data json.
+            </summary>
+            <param name="reader">The reader.</param>
+            <param name="existingValue">The existing value.</param>
+            <param name="serializer">The serializer.</param>
+            <param name="isNested">if set to <c>true</c> [is nested].</param>
+            <returns>A <see cref="T:Microsoft.Azure.Graphs.Elements.Edge"/> from the Json.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.Vertex">
+            <summary>
+            Storage container for vertex data.
+            Supports deserialization from GraphSON format.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.Vertex"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.#ctor(System.Object,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.Vertex"/> class.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="label">The label.</param>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Vertex.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Vertex.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+            <value>
+            The label.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Vertex.OutEdges">
+            <summary>
+            Gets or sets the out edges.
+            </summary>
+            <value>
+            The out edges.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Vertex.InEdges">
+            <summary>
+            Gets or sets the in edges.
+            </summary>
+            <value>
+            The in edges.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.Vertex.Properties">
+            <summary>
+            Gets or sets the properties.
+            </summary>
+            <value>
+            The properties.
+            </value>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.Validate">
+            <summary>
+            Validates this instance.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">
+            Vertex must have a valid Id.
+            or
+            Vertex must have a valid Label.
+            </exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.GetVertexProperties(System.String)">
+            <summary>
+            Gets the vertex properties that correspond to a given property key.
+            </summary>
+            <param name="key">The property key to query.</param>
+            <returns>Enumerable containing vertex properties matching the <paramref name="key"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.GetVertexProperties">
+            <summary>
+            Gets all the vertex properties on the vertex.
+            </summary>
+            <returns>Enumerable containing all vertex properties.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.GetInEdges">
+            <summary>
+            Gets all the incoming edges to the vertex.
+            </summary>
+            <returns>Enumerable containing in-edges.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.GetOutEdges">
+            <summary>
+            Gets all the outgoing edges from the vertex.
+            </summary>
+            <returns>Enumerable containing outgoing edges.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.GetInEdges(System.String)">
+            <summary>
+            Gets all the incoming edges to the vertex with label <paramref name="label"/>.
+            </summary>
+            <param name="label">Edge label to match on.</param>
+            <returns>Enumerable containing incoming edges.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.GetOutEdges(System.String)">
+            <summary>
+            Gets all the outgoing edges from the vertex with label <paramref name="label"/>.
+            </summary>
+            <param name="label">Edge label to match on.</param>
+            <returns>Enumerable containing outgoing edges.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.GetNestedEnumerable``1(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{``0}})">
+            <summary>
+            Gets an enumerable which represents a flat set of elements from a dictionary.
+            </summary>
+            <typeparam name="T">Type of the element.</typeparam>
+            <param name="dictionary">Original dictionary which contains a nested collection.</param>
+            <returns>Enumerable of each nested element.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.GetNestedEnumerable``1(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{``0}},System.String)">
+            <summary>
+            Gets an enumerable which represents a flat set of elements from a dictionary.
+            </summary>
+            <typeparam name="T">Type of the element.</typeparam>
+            <param name="dictionary">Original dictionary which contains a nested collection.</param>
+            <param name="key">Key to use when extracting the nested elements from the dictionary.</param>
+            <returns>Enumerable of each nested element.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.AddEdge(Microsoft.Azure.Graphs.Elements.Edge)">
+            <summary>
+            Adds the <see cref="T:Microsoft.Azure.Graphs.Elements.Edge" /> to this <see cref="T:Microsoft.Azure.Graphs.Elements.Vertex" />.
+            </summary>
+            <param name="edge">The edge data.</param>
+            <returns>
+            The <see cref="T:Microsoft.Azure.Graphs.Elements.VertexEdge" /> that was passed in for method chaining.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">Cannot add an Edge via Edge, which does not contain an InVertexId or OutVertexId matching this Vertex Id.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.AddEdge(System.Object,System.String,System.Object,System.String,Microsoft.Azure.Graphs.Elements.Direction)">
+            <summary>
+            Adds the edge data to this <see cref="T:Microsoft.Azure.Graphs.Elements.Vertex" />.
+            </summary>
+            <param name="edgeId">The edge identifier.</param>
+            <param name="edgeLabel">The edge label.</param>
+            <param name="otherVertexId">The other vertex identifier.</param>
+            <param name="otherVertexLabel">The other vertex label.</param>
+            <param name="direction">The edge direction.</param>
+            <returns>A <see cref="T:Microsoft.Azure.Graphs.Elements.VertexEdge"/> representing the specified edge.</returns>
+            <exception cref="T:System.InvalidOperationException">Edge direction not supported.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.AddProperty(Microsoft.Azure.Graphs.Elements.VertexProperty)">
+            <summary>
+            Adds the <see cref="T:Microsoft.Azure.Graphs.Elements.VertexProperty"/> to this <see cref="T:Microsoft.Azure.Graphs.Elements.Vertex"/>.
+            </summary>
+            <param name="vertexProperty">The vertex property data.</param>
+            <returns>The <see cref="T:Microsoft.Azure.Graphs.Elements.VertexProperty"/> that was passed in for method chaining.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.AddEdgeInternal(Microsoft.Azure.Graphs.Elements.VertexEdge,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Microsoft.Azure.Graphs.Elements.VertexEdge}})">
+            <summary>
+            Internal helper for adding edges to the specified edge collection.
+            </summary>
+            <param name="edge">The edge data.</param>
+            <param name="edgeCollection">The edge collection.</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.AddOutEdge(Microsoft.Azure.Graphs.Elements.Edge)">
+            <summary>
+            Adds the out edge to this vertex.
+            </summary>
+            <param name="outEdge">The out edge.</param>
+            <returns>A copy of the <see cref="T:Microsoft.Azure.Graphs.Elements.VertexEdge"/> that was added.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.Vertex.AddInEdge(Microsoft.Azure.Graphs.Elements.Edge)">
+            <summary>
+            Adds the in edge to this vertex.
+            </summary>
+            <param name="inEdge">The in edge.</param>
+            <returns>A copy of the <see cref="T:Microsoft.Azure.Graphs.Elements.VertexEdge"/> that was added.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.VertexConverter">
+            <summary>
+            A custom Newtonsoft Json deserializer that understands the GraphSON format for <see cref="T:Microsoft.Azure.Graphs.Elements.Vertex" />.
+            </summary>
+            <seealso cref="T:Newtonsoft.Json.JsonConverter" />
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <returns>
+            <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexConverter.ExtractEdges(Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.JsonSerializer,Microsoft.Azure.Graphs.Elements.Direction)">
+            <summary>
+            Extracts the edges into <see cref="T:Microsoft.Azure.Graphs.Elements.Edge" /> given an edge collection <see cref="T:Newtonsoft.Json.Linq.JToken" />.
+            </summary>
+            <param name="jToken">The <see cref="T:Newtonsoft.Json.Linq.JToken" /> pointing to an edge collection.</param>
+            <param name="serializer">The serializer.</param>
+            <param name="direction">The direction of the edge.</param>
+            <returns>
+            A deserialized collection of <see cref="T:System.Collections.Generic.Dictionary`2" />.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexConverter.ExtractProperties(Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Extracts the vertex properties into <see cref="T:Microsoft.Azure.Graphs.Elements.VertexProperty"/> given a vertex property collection <see cref="T:Newtonsoft.Json.Linq.JToken"/>.
+            </summary>
+            <param name="jToken">The <see cref="T:Newtonsoft.Json.Linq.JToken"/> pointing to a vertex property collection.</param>
+            <param name="serializer">The serializer.</param>
+            <returns>A deserialized collection of <see cref="T:System.Collections.Generic.Dictionary`2"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexConverter.WriteEdges(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Microsoft.Azure.Graphs.Elements.VertexEdge}},System.String,Newtonsoft.Json.JsonWriter,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the edges to GraphSon format.
+            </summary>
+            <param name="edgeCollection">The edge collection.</param>
+            <param name="propertyName">Name of the property.</param>
+            <param name="writer">The writer.</param>
+            <param name="serializer">The serializer.</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexConverter.WriteProperties(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{Microsoft.Azure.Graphs.Elements.VertexProperty}},System.String,Newtonsoft.Json.JsonWriter,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the properties to GraphSon format.
+            </summary>
+            <param name="propertyCollection">The property collection.</param>
+            <param name="propertyName">Name of the property.</param>
+            <param name="writer">The writer.</param>
+            <param name="serializer">The serializer.</param>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.VertexEdge">
+            <summary>
+            Storage container for edge data contained within a vertex.
+            Supports deserialization from GraphSON format.
+            </summary>
+            <remarks>
+            Vertex edge data is more sparse than edge data in that it doesn't populate the vertex in\out labels.
+            Vertex edge data also contains direction information relative to its parent vertex.
+            It is used to represent the edge information that is stored within a vertex rather than the full, independent, edge object.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexEdge.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.VertexEdge"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexEdge.#ctor(Microsoft.Azure.Graphs.Elements.Edge)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.VertexEdge"/> class.
+            </summary>
+            <param name="edge">The edge data.</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexEdge.#ctor(System.Object,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.VertexEdge"/> class.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="label">The label.</param>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.VertexEdge.Direction">
+            <summary>
+            Gets the vertex edge direction.
+            </summary>
+            <value>
+            The vertex edge direction.
+            </value>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexEdge.Validate">
+            <summary>
+            Validates this instance.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">
+            VertexEdge must have a valid Id.
+            or
+            VertexEdge must have a valid Label.
+            </exception>
+            <exception cref="T:System.ArgumentException">VertexEdge must specify at least one InVertexId or OutVertexId.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexEdge.AddProperty(System.String,System.Object)">
+            <summary>
+            Adds the property.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <returns>This <see cref="T:Microsoft.Azure.Graphs.Elements.VertexEdge"/> for method chaining.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.VertexEdgeConverter">
+            <summary>
+            A custom Newtonsoft Json deserializer that understands the GraphSON format for <see cref="T:Microsoft.Azure.Graphs.Elements.VertexEdge"/> nested within <see cref="T:Microsoft.Azure.Graphs.Elements.Vertex"/>.
+            </summary>
+            <seealso cref="T:Newtonsoft.Json.JsonConverter" />
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexEdgeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexEdgeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexEdgeConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <returns>
+            <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.VertexProperty">
+            <summary>
+            Storage container for vertex property data.
+            Supports deserialization from GraphSON format.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexProperty.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.VertexProperty"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexProperty.#ctor(System.Object,System.String,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.Elements.VertexProperty" /> class.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.VertexProperty.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.VertexProperty.Key">
+            <summary>
+            Gets or sets the key.
+            </summary>
+            <value>
+            The key.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.VertexProperty.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>
+            The value.
+            </value>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Elements.VertexProperty.Properties">
+            <summary>
+            Gets or sets the properties.
+            </summary>
+            <value>
+            The properties.
+            </value>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexProperty.GetProperty(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexProperty.GetProperties">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexProperty.AddProperty(System.String,System.Object)">
+            <summary>
+            Adds the property.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <returns>This <see cref="T:Microsoft.Azure.Graphs.Elements.VertexProperty"/> for method chaining.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexProperty.Validate">
+            <summary>
+            Validates this instance.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">
+            VertexProperty must have a valid Key.
+            or
+            VertexProperty must not have a null Value.
+            </exception>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Elements.VertexPropertyConverter">
+            <summary>
+            A custom Newtonsoft Json deserializer that understands the GraphSON format for <see cref="T:Microsoft.Azure.Graphs.Elements.VertexProperty"/>.
+            </summary>
+            <seealso cref="T:Newtonsoft.Json.JsonConverter" />
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexPropertyConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexPropertyConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Elements.VertexPropertyConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <returns>
+            <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.GraphConnection">
+            <summary>
+            Connector to a graph database. The class inherits most functions of SqlConnection,
+            and provides a number of Graph-specific functions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphConnection.#ctor(Microsoft.Azure.Documents.Client.DocumentClient,Microsoft.Azure.Documents.DocumentCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.Graphs.GraphConnection"/> class/ 
+            The class effective wraps a connection to a DocumentDB collection.
+            </summary>
+            <param name="documentClient">The document client.</param>
+            <param name="documentCollection">The document collection the connetion is targeting.</param>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.GraphConnection.VertexPartitionProperty">
+            <summary>
+            The vertex property by which the graph is logically partitioned.
+            This distinguishes from partitionFullPath in that the latter is the physical
+            partition key of a document collection.
+            
+            (1) When partitionFullPath is /_partition, the value of this property is 
+                provided by the vertex property VertexPartitionProperty. For example, 
+                with VertexPartitionProperty being "id", the graph is logically partitioned 
+                by vertex Id, while documents are physically partitioned by /_partition.
+                
+            (2) In the other cases, VertexPartitionProperty and PartitionFullPath are the 
+                same. 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.GraphConnection.GenerateEdgeId">
+            <summary>
+            Whether to generate "_edgeId" for edgeObject
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphConnection.Dispose">
+            <summary>
+            Releases all resources used by GraphConnection.
+            This function is NOT thread-safe!
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphConnection.CreateDocumentAsync(Newtonsoft.Json.Linq.JObject,Microsoft.Azure.Graphs.GraphCommand)">
+            <summary>
+            Create a new document (return the new documentId)
+            The <paramref name="docObject"/> will be updated (Add the "id" field)
+            </summary>
+            <param name="graphCommand"></param>
+            <param name="docObject"></param>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.GremlinDocumentQuery`1">
+            <summary>
+            Represents a Graph query implementation of <see cref="T:Microsoft.Azure.Documents.Linq.IDocumentQuery`1"/> which enumerates results asynchronously.
+            </summary>
+            <typeparam name="T">Source query type</typeparam>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GremlinDocumentQuery`1.#ctor(Microsoft.Azure.Graphs.GraphConnection,Microsoft.Azure.Graphs.GraphCommand)">
+            <summary>
+            Initialize an instance of <see cref="T:Microsoft.Azure.Graphs.GremlinDocumentQuery`1"/> so that query results can be enumerated.
+            </summary>
+            <param name="connection"></param>
+            <param name="command"></param>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.GremlinDocumentQuery`1.HasMoreResults">
+            <summary>
+            Gets a value indicating whether there are potentially additional results that can be
+            returned from the query in the Azure DocumentDB database service.
+            </summary>
+            <value>Boolean value representing if there are potentially additional results that can be
+            returned from the query.</value>
+            <remarks>Initially returns true. This value is set based on whether the last execution returned a continuation token.</remarks>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GremlinDocumentQuery`1.Dispose">
+            <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GremlinDocumentQuery`1.ExecuteNextAsync(System.Threading.CancellationToken)">
+            <summary>
+            Executes the query and retrieves the next page of results as dynamic objects in the Azure DocumentDB database service.
+            </summary>
+            <param name="token">(Optional) The <see cref="T:System.Threading.CancellationToken" /> allows for notification that operations should be cancelled.</param>
+            <returns>The Task object for the asynchronous response from query execution.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GremlinDocumentQuery`1.ExecuteNextAsync``1(System.Threading.CancellationToken)">
+            <summary>
+            Executes the query and retrieves the next page of results in the Azure DocumentDB database service.
+            </summary>
+            <typeparam name="TResult">The type of the object returned in the query result.</typeparam>
+            <param name="token">(Optional) The <see cref="T:System.Threading.CancellationToken" /> allows for notification that operations should be cancelled.</param>
+            <returns>The Task object for the asynchronous response from query execution.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.GraphExtensions">
+            <summary>
+            This class provides extension methods for creating Graph queries of type <see cref="T:Microsoft.Azure.Documents.Linq.IDocumentQuery`1"/>.
+            These queries will execute against Azure DocumentDB collection.
+            </summary>
+            <remarks>
+            The class extends <see cref="T:Microsoft.Azure.Documents.Client.DocumentClient"/> class to enable you to express graph traversal and CRUD operations
+            over data persisted in a Azure DocumentDB collection. The returned <see cref="T:Microsoft.Azure.Documents.Linq.IDocumentQuery`1"/> objects 
+            wrap the actual query execution, and enumerating these objects forces Azure DocumentDB queries to be executed.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphExtensions.CreateGremlinQuery``1(Microsoft.Azure.Documents.Client.DocumentClient,Microsoft.Azure.Documents.DocumentCollection,System.String,Microsoft.Azure.Documents.Client.FeedOptions,Microsoft.Azure.Graphs.GraphSONMode)">
+            <summary>
+            Method to create a Gremlin expression to create/query graph elements stored under an Azure CosmosDB collection.
+            </summary>
+            <typeparam name="T">Type of the object to query.</typeparam>
+            <param name="documentClient">The DocumentClient instance to execute the query.</param>
+            <param name="collection">The DocumentCollection that contains the graph to query.</param>
+            <param name="gremlinExpression">The Gremlin expression.</param>
+            <param name="feedOptions">The options for processing the query result feed. For details <see cref="T:Microsoft.Azure.Documents.Client.FeedOptions"/>.</param>
+            <param name="graphSONMode">The GraphSON mode to use when returning the results of the query.</param>
+            <returns>An <see cref="T:Microsoft.Azure.Documents.Linq.IDocumentQuery`1" /> that can evaluate the query.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphExtensions.CreateGremlinQuery(Microsoft.Azure.Documents.Client.DocumentClient,Microsoft.Azure.Documents.DocumentCollection,System.String,Microsoft.Azure.Documents.Client.FeedOptions,Microsoft.Azure.Graphs.GraphSONMode)">
+            <summary>
+            Method to create a Gremlin expression to create/query graph elements stored under an Azure CosmosDB collection.
+            </summary>
+            <param name="documentClient">The DocumentClient instance to execute the query.</param>
+            <param name="collection">The DocumentCollection that contains the graph to query.</param>
+            <param name="gremlinExpression">The Gremlin expression.</param>
+            <param name="feedOptions">The options for processing the query result feed. For details <see cref="T:Microsoft.Azure.Documents.Client.FeedOptions"/>.</param>
+            <param name="graphSONMode">The GraphSON mode to use when returning the results of the query.</param>
+            <returns>An <see cref="T:Microsoft.Azure.Documents.Linq.IDocumentQuery`1" /> that can evaluate the query.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.GraphSONMode">
+            <summary>
+            Defines the output formats for results from gremlin queries.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.GraphSONMode.Compact">
+            <summary>
+            Use the GraphSON compact format for outputs.
+            Output will return valid GraphSON, without including adjacency information.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.GraphSONMode.Normal">
+            <summary>
+            Use normal GraphSON format for outputs.
+            Output will return valid GraphSON, including adjacency information.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.AdjacencyListDecoder.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.AdjacencyListDecoder.FillMetaField(Microsoft.Azure.Graphs.Runtime.RawRecord,Microsoft.Azure.Graphs.Runtime.EdgeField,System.String,System.Object,System.Boolean,System.Boolean)">
+            <summary>
+            Fill edge's {_source, _sink, _other, edgeId, *} meta fields
+            </summary>
+            <param name="record"></param>
+            <param name="edge"></param>
+            <param name="startVertexId"></param>
+            <param name="startVertexPartitionKey"></param>
+            <param name="isReversedAdjList"></param>
+            <param name="isStartVertexTheOriginVertex"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.AdjacencyListDecoder.FillPropertyField(Microsoft.Azure.Graphs.Runtime.RawRecord,Microsoft.Azure.Graphs.Runtime.EdgeField,System.Collections.Generic.List{System.String})">
+            <summary>
+            Fill the field of selected edge's properties
+            </summary>
+            <param name="record"></param>
+            <param name="edge"></param>
+            <param name="projectedFields"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.AdjacencyListDecoder.DecodeAdjacencyListAsync(Microsoft.Azure.Graphs.Runtime.AdjacencyListField,System.String,System.Object,System.Boolean)">
+            <summary>
+            Decode an adjacency list and return all the edges satisfying the edge predicate
+            </summary>
+            <param name="adjacencyList"></param>
+            <param name="startVertexId"></param>
+            <param name="startVertexPartitionKey"></param>
+            <param name="isReverse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.AdjacencyListDecoder.DecodeAsync(Microsoft.Azure.Graphs.Runtime.RawRecord)">
+            <summary>
+            Decode a record's adjacency list or/and reverse adjacency list
+            and return all the edges satisfying the edge predicate
+            </summary>
+            <param name="record"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.AdjacencyListDecoder.CrossApplyAsync(Microsoft.Azure.Graphs.Runtime.RawRecord)">
+            <summary>
+            Cross apply the adjacency list or/and reverse adjacency list of the record
+            </summary>
+            <param name="record"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.AdjacencyListDecoder.ConstructSpilledEdgesInBatch">
+            <summary>
+            Send one query to construct all the spilled adjacency lists of vertice in the inputSequence 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.Enums.JsonDataType">
+            <summary>
+            This is a data type enumeration defined for JSON documents.  
+            These types are not a JSON standard, but a convention used Json.NET.  
+            
+            Note: the precedence follows that of SQL Server.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.AllPropertiesOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.AllValuesOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.BarrierOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.CartesianProductOperator2.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.ChooseOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.ChooseWithOptionsOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.CoalesceOperator2.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.CoinOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.ConstantOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.ConstantSourceOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.ContainerOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.ContainerScanOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.CountLocalOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.CyclicPathOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.Decompose1Operator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.DeduplicateLocalOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.DeduplicateOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.FetchNodeOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.FilterInBatchOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.FilterOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.FlatMapOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.Operators.GraphExecutionOperator">
+            <summary>
+            The base class for all query execution operators. 
+            The class implements the execution interface and specifies the field names of 
+            the raw records produced by this operator. 
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.GraphExecutionOperator.ToString">
+            <summary>
+            Standard .ToString() used for debugger visualizations.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.GraphExecutionOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.GraphExecutionOperator.SerializePhysicalOperatorName(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Helper function that initializes a string builder for the purpose of pretty printing the physical op
+            </summary>
+            <param name="builder"></param>
+            <param name="prefix">prefix that needs to be appened prior to the details for this node</param>
+            <param name="role">what is the role of this physical op</param>
+            <param name="last">is this last child node?</param>
+            <param name="root">is this root node?</param>
+            <returns>prefix to be used for children pretty printing the children of this node</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.GraphExecutionOperator.SerializePhysicalOperatorChild(System.Text.StringBuilder,Microsoft.Azure.Graphs.Runtime.Operators.GraphExecutionOperator,System.String,System.String,System.Boolean)">
+            <summary>
+            Helper function that builds the string representation for a phy operator node, or Empty string if node is null
+            </summary>
+            <param name="builder"></param>
+            <param name="physicalOperator"></param>
+            <param name="prefix"></param>
+            <param name="role">what is the role of this physical op</param>
+            <param name="last">is this last child node?</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.GraphExecutionOperator.SerializePhysicalOperatorProperties(System.Text.StringBuilder,System.String,System.Object[])">
+            <summary>
+            Helper function that builds the string representation for a phy operator node, or Empty string if node is null
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.GraphExecutionOperator.SerializeGetHeaderPrefix(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Computes the prefix for pretty printing the header of a phy op
+            </summary>
+            <param name="prefix">baseline prefix that needs to be printed prior to header information</param>
+            <param name="last">is the operator the last child for its parent?</param>
+            <param name="root">is the operator the root one?</param>
+            <returns>string to be used to prefix the header for an operator</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.GraphExecutionOperator.SerializeGetChildPrefix(System.String,System.Boolean)">
+            <summary>
+            Computes the prefix for pretty printing the children for a phy op
+            </summary>
+            <param name="prefix">baseline prefix that needs to be printed prior to all output produced by a child</param>
+            <param name="last">is the child last one?</param>
+            <returns>string to be sued to prefix the output produced by a child</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.GroupOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.GroupSideEffectOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.IdOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.InjectOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.LabelOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.LocalOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.MapOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.MaxLocalOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.MeanLocalOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.MinLocalOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.OptionalInBatchOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.ModificationOperatorBase.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.SampleLocalOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.Operators.TraversalOperator">
+            <summary>
+            The operator that takes a list of records as source vertexes and 
+            traverses to their one-hop or multi-hop neighbors. One-hop neighbors
+            are defined in the adjacency lists of the sources. Multi-hop
+            vertices are defined by a recursive function that has a sub-query
+            specifying a single hop from a vertex to another and a boolean fuction 
+            controlling when the recursion terminates (in other words, # of hops).  
+            
+            This operators emulates the nested-loop join algorithm.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.TraversalOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Runtime.Operators.UpdatePropertiesOperatorBase.PropertiesToBeUpdated">
+            <summary>
+            Item1 is property key.
+            Item2 is property value. If it is null, then delete the property
+            Item3 is property's index in the input record. If it is -1, then the input record doesn't contain this property.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.OptionalOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.OrderLocalOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.OrderOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.PathOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.PathOperator2.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.ProjectAggregation.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.ProjectByOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.ProjectOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.PropertiesOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.PropertyKeyOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.PropertyMapOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.PropertyValueOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.QueryDerivedTableOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.RangeLocalOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.RangeOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.RepeatOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.SampleOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.SelectColumnOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.SelectOneOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.SelectOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.AggregateOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.SideEffectOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.SimplePathOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.StoreOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.SumLocalOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.TailLocalOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.TailOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the internal structure of the physical operator.
+            </summary>
+            <returns></returns>
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.TreeSideEffectOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.UnfoldOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.UnionOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.ValueMapOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Operators.ValuesOperator.SerializePhysicalOperatorPlan(System.Text.StringBuilder,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Pretty print the layout mapping for a physical operator. Used for printing physical plan.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.EdgeDocumentHelper.InsertEdgeAndUploadAsync(Microsoft.Azure.Graphs.GraphCommand,Microsoft.Azure.Graphs.Runtime.VertexField,Microsoft.Azure.Graphs.Runtime.VertexField,Newtonsoft.Json.Linq.JObject,Newtonsoft.Json.Linq.JObject,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Add an edge from one vertex (source) to another (sink)
+            NOTE: Both the source and sink vertex are modified.
+            NOTE: This function may upload the edge-document.
+            NOTE: srcVertex and sinkVertex are updated and uploaded.
+            </summary>
+            <param name="graphCommand"></param>
+            <param name="srcVertexField"></param>
+            <param name="sinkVertexField"></param>
+            <param name="edgeJsonObject"></param>
+            <param name="srcVertexObject"></param>
+            <param name="sinkVertexObject"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.EdgeDocumentHelper.TryUploadOneAsync(Microsoft.Azure.Graphs.GraphCommand,System.String,Newtonsoft.Json.Linq.JObject,System.Boolean)">
+            <summary>
+            Try to upload one document. 
+            If the operation fails because document is too large, nothing is changed and "tooLarge" is set true.
+            If the operation fails due to other reasons, nothing is changed and an exception is thrown
+            If the operation succeeds, docObject["id"] is set if it doesn't have one
+            </summary>
+            <param name="graphCommand"></param>
+            <param name="docId"> Document Id</param>
+            <param name="docObject"> Document object</param>
+            <param name="isCreate"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.EdgeDocumentHelper.InsertEdgeObjectInternalAsync(Microsoft.Azure.Graphs.GraphCommand,Newtonsoft.Json.Linq.JObject,Microsoft.Azure.Graphs.Runtime.VertexField,Newtonsoft.Json.Linq.JObject,System.Boolean)">
+            <param name="graphCommand"></param>
+            <param name="vertexObject"></param>
+            <param name="vertexField"></param>
+            <param name="edgeObject"></param>
+            <param name="isReverse"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.EdgeDocumentHelper.FillEdgeDict(System.Collections.Generic.Dictionary{Microsoft.Azure.Graphs.Runtime.VertexCompositeKey,System.Collections.Generic.List{Newtonsoft.Json.Linq.JObject}},System.Collections.Generic.List{System.Object},Microsoft.Azure.Graphs.GraphConnection)">
+            <summary>
+            edgeDict: [vertexId, [spilled edge document id, spilled edge document]]
+            </summary>
+            <param name="edgeDict"></param>
+            <param name="edgeDocuments"></param>
+            <param name="graphConnection"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.EdgeDocumentHelper.ConstructVirtualReverseEdgeDocuments(System.Collections.Generic.List{System.Object},Microsoft.Azure.Graphs.GraphCommand)">
+            <summary>
+            Use forward edge documents to construct reverse edge documents, 
+            This document is used to reconstruct reverse adjacency list when it is
+            requested by the query but UseReverseEdges is false.
+            </summary>
+            <param name="forwardEdgeDocuments"></param>
+            <param name="graphCommand"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.EdgeDocumentHelper.ConstructLazyAdjacencyListAsync(Microsoft.Azure.Graphs.GraphCommand,System.Collections.Generic.List{Microsoft.Azure.Graphs.Runtime.VertexCompositeKey},System.Boolean,System.Boolean)">
+            <summary>
+            For every vertex Id in the input set, retrieve its edge documents 
+            to construct their forward and/or backward adjacency list.
+            </summary>
+            <param name="graphCommand"></param>
+            <param name="vertexSet"></param>
+            <param name="outbound"></param>
+            <param name="inbound"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.IGraphExecution">
+            <summary>
+            The interface of query execution operators.
+            An operator is in one of the states: open or closed. 
+            By implementing NextAsync(), a query execution operator implements its own computation logic 
+            and returns result iteratively. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.RawRecord">
+            <summary>
+            RawRecord is a data sturcture representing data records flowing from one execution operator to another. 
+            A data record is a multi-field blob.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.ScalarFunction">
+            <summary>
+            A scalar function takes input as a raw record and outputs a scalar value.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Runtime.ValuePropertyField.Parent">
+            <summary>
+            If this is a vertex meta property (id, label, ...), its parent is VertexField
+            If this is a vertex-property's meta property, its parent is VertexSinglePropertyField
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Runtime.VertexField.VertexMetaProperties">
+            <summary>
+            [Property Name, ValuePropertyField] (that is, "id", "_nextEdgeOffset", "label", "_partition")
+            "_edge" and "_reverse_edge" are not included
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Runtime.VertexField.AllProperties">
+            <summary>
+            Return all the properties of a vertex, they can be:
+             - ValuePropertyField: for reserved properties: id, label, nextEdgeOffset, partition (no meta-properties)
+             - VertexSinglePropertyField: for custom properties, single value (may contain meta-properties)
+             - VertexPropertyField: for custom properties, multiple values (may contain meta-properties)
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.VertexField.ConstructLazyAdjacencyListField(System.Collections.Generic.List{Newtonsoft.Json.Linq.JObject},System.Boolean,System.Boolean)">
+            <summary>
+            Use edgeDocDict to construct an adjacency list
+            edgeDocDict: key -> spilled edge document id, value -> spilled edge document
+            The spilled edge document id might be "$VIRTUAL$", which means forward edges are used
+            to construct a vertex's reverse adjacency list
+            </summary>
+            <param name="edgeDocList"></param>
+            <param name="outbound"></param>
+            <param name="inbound"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.VertexField.ConstructLazyAdjacencyListField(System.String,System.String,System.Object,System.Collections.Generic.List{Newtonsoft.Json.Linq.JObject},System.Boolean,System.Boolean)">
+            <summary>
+            Use edgeDocDict to construct an adjacency list
+            edgeDocDict: key -> spilled edge document id, value -> spilled edge document
+            The spilled edge document id might be "$VIRTUAL$", which means forward edges are used
+            to construct a vertex's reverse adjacency list
+            </summary>
+            <param name="vertexId"></param>
+            <param name="vertexLabel"></param>
+            <param name="vertexPartitionKey"></param>
+            <param name="edgeDocList"></param>
+            <param name="outbound"></param>
+            <param name="inbound"></param>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.AccessedTableColumnVisitor">
+            <summary>
+            The visitor that traverses the syntax tree and returns the columns 
+            accessed in current query fragment for each provided table alias. 
+            This visitor is used to determine what vertex/edge properties are projected 
+            when a JSON query is sent to the underlying system to retrieve vertices and edges. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.AggregateFunctionCountVisitor">
+            <summary>
+            Return how many times have aggregate functions appeared in a SelectQueryBlock
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.AttachWhereClauseVisitor">
+            <summary>
+            AttachWhereClauseVisitor traverses the WHERE clause and attachs predicates
+            into nodes and edges of constructed graph.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.BooleanExpressionNormalizeVisitor">
+            <summary>
+            BooleanExprNormalizeVisitor traverses a boolean expression 
+            and normalizes it to a list of conjunctive predicates.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.BooleanExprTableReferenceVisitor">
+            <summary>
+            BooleanExprTableReferenceVisitor traverses a boolean expression and returns all the tables and properties it references
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.BooleanWValueExpressionVisitor">
+            <summary>
+            Turn a SQL-style boolean WValueExpression to lower case
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.CandidateJoinUnit">
+            <summary>
+            A 1-height tree is a node with one or more outgoing edges. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.TableClassifyVisitor">
+            <summary>
+            The visitor that classifies table references in a FROM clause
+            into named table references and others. A named table reference
+            represents the entire collection of vertices in the graph. 
+            Other table references correspond to query derived tables, 
+            variable tables defined earlier in the script, or table-valued 
+            functions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.WSelectQueryBlock.IsTraversalThroughPhysicalReverseEdge(Microsoft.Azure.Graphs.Runtime.MatchEdge)">
+            <summary>
+            If using node._reverse_edge, return true.
+            If using node._edge, return false
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.WSelectQueryBlock.GenerateLocalContextForAdjacentListDecoder(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Generate a local context for edge's predicate evaluation
+            </summary>
+            <param name="edgeTableAlias"></param>
+            <param name="projectedFields"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.WSelectQueryBlock.TryAttachPredicate(Microsoft.Azure.Graphs.Runtime.MatchGraph,Microsoft.Azure.Graphs.Runtime.WBooleanExpression,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}})">
+            <summary>
+            If a predicate is a cross-table one, return false
+            Otherwise, attach the predicate to the corresponding node or edge and return true
+            </summary>
+            <param name="graphPattern"></param>
+            <param name="predicate"></param>
+            <param name="tableColumnReferences"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.WSelectQueryBlock.AttachProperties(Microsoft.Azure.Graphs.Runtime.MatchGraph,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.HashSet{System.String}})">
+            <summary>
+            Attach referencing properties to corresponding nodes and edges
+            for later runtime evaluation or selection.
+            </summary>
+            <param name="graphPattern"></param>
+            <param name="tableColumnReferences"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.WSelectQueryBlock.GetAdjDecoderCrossApplyTypeParameter(Microsoft.Azure.Graphs.Runtime.MatchEdge)">
+            <summary>
+            Return adjacency list's type as the parameter of adjacency list decoder
+            Item1 indicates whether to cross apply forward adjacency list
+            Item2 indicates whether to cross apply backward adjacency list
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.WSelectQueryBlock.GetAdjacencyListTraversalColumn(Microsoft.Azure.Graphs.Runtime.MatchEdge)">
+            <summary>
+            Return the edge's traversal column reference
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.WSelectQueryBlock.GetTraversalType(Microsoft.Azure.Graphs.Runtime.MatchEdge)">
+            <summary>
+            Return traversal type
+            </summary>
+            <param name="edge"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.WSelectQueryBlock.CheckRemainingPredicatesAndAppendFilterOp(Microsoft.Azure.Graphs.Runtime.QueryCompilationContext,Microsoft.Azure.Graphs.GraphCommand,System.Collections.Generic.HashSet{System.String},System.Collections.Generic.List{System.Tuple{Microsoft.Azure.Graphs.Runtime.WBooleanExpression,System.Collections.Generic.HashSet{System.String}}},System.Collections.Generic.List{Microsoft.Azure.Graphs.Runtime.Operators.GraphExecutionOperator})">
+            <summary>
+            Check whether all the tables referenced by the cross-table predicate have been processed
+            If so, embed the predicate in a filter operator and append it to the operator list
+            </summary>
+            <param name="context"></param>
+            <param name="graphCommand"></param>
+            <param name="tableReferences"></param>
+            <param name="remainingPredicatesAndTheirTableReferences"></param>
+            <param name="childrenProcessor"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.WSelectQueryBlock.CrossApplyEdges(Microsoft.Azure.Graphs.GraphCommand,Microsoft.Azure.Graphs.Runtime.QueryCompilationContext,System.Collections.Generic.List{Microsoft.Azure.Graphs.Runtime.Operators.GraphExecutionOperator},System.Collections.Generic.IList{Microsoft.Azure.Graphs.Runtime.MatchEdge},System.Collections.Generic.List{System.Tuple{Microsoft.Azure.Graphs.Runtime.WBooleanExpression,System.Collections.Generic.HashSet{System.String}}},System.Boolean)">
+            <summary>
+            Generate AdjacencyListDecoder and update context's layout for edges
+            </summary>
+            <param name="graphCommand"></param>
+            <param name="context"></param>
+            <param name="operatorChain"></param>
+            <param name="edges"></param>
+            <param name="predicatesAccessedTableReferences"></param>
+            <param name="isMatchingEdges"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.WSelectQueryBlock.GenerateMatchingIndexesForBackforwadMatchingEdges(Microsoft.Azure.Graphs.Runtime.QueryCompilationContext,System.Collections.Generic.List{Microsoft.Azure.Graphs.Runtime.MatchEdge})">
+            <summary>
+            Generate matching indexes for backwardMatchingEdges
+            </summary>
+            <param name="context"></param>
+            <param name="backwardMatchingEdges"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.WSelectQueryBlock.UpdateRawRecordLayout(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{Microsoft.Azure.Graphs.Runtime.WColumnReferenceExpression,System.Int32})">
+            <summary>
+            Update the raw record layout when new properties are added
+            </summary>
+            <param name="tableName"></param>
+            <param name="properties"></param>
+            <param name="rawRecordLayout"></param>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Runtime.ConnectedComponent.TraversalOrder">
+            Item1: current node. A query will be sent to the server to fetch this node if this is the first time 
+                   it appears in the whole list.
+            Item2: the traversal edge whose sink is the current node.
+            Item3: traversal edges whose sources are the current node. 
+                   This list will either contain 0 or 1 traversal edge in the current version, 
+                   and it will be pushed to server if possible.
+            Item4: backward matching edges.
+            Item5: forward matching edges.
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.QueryOptimizer.GetNodeUnits(Microsoft.Azure.Graphs.Runtime.ConnectedComponent,Microsoft.Azure.Graphs.Runtime.MatchComponent)">
+            <summary>
+            Get a full one height tree with joint edges and unmaterlized edges.
+            </summary>
+            <param name="graph"></param>
+            <param name="component"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.GraphOptimizer.GenerateTraversalOrderFromTraversalChain(System.Collections.Generic.List{System.Tuple{Microsoft.Azure.Graphs.Runtime.MatchNode,Microsoft.Azure.Graphs.Runtime.MatchEdge,Microsoft.Azure.Graphs.Runtime.MatchNode,System.Collections.Generic.List{Microsoft.Azure.Graphs.Runtime.MatchEdge},System.Collections.Generic.List{Microsoft.Azure.Graphs.Runtime.MatchEdge}}})">
+            <summary>
+            Item1: current node. A query will be sent to the server to fetch this node if this is the first time 
+                   it appears in the whole list.
+            Item2: the traversal edge whose sink is the current node.
+            Item3: traversal edges whose sources are the current node. 
+                   This list will contain either 0 or 1 traversal edge in the current version, 
+                   and it will be pushed to server if possible.
+            Item4: backward matching edges.
+            Item5: forward matching edges.
+            </summary>
+            <param name="traversalChain"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.GraphRuntimeFunctionCountVisitor">
+            <summary>
+            Returns how many times runtime function appear in a boolean expression
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.MatchComponent">
+            <summary>
+            The Component in the joining process
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.MatchComponent.#ctor(Microsoft.Azure.Graphs.Runtime.MatchComponent)">
+            <summary>
+            Deep Copy
+            </summary>
+            <param name="component"></param>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Runtime.MatchEdge.BindNodeTableObjName">
+            <summary>
+            Schema Object of the node table/node view which the edge is bound to.
+            It is an instance in the syntax tree.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.MatchEdge.RetrievePredicatesExpression">
+            <summary>
+            Converts edge attribute predicates into a boolean expression, which is used for
+            constructing queries for retrieving edge statistics
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Runtime.MatchNode.GlobalNodeIdDensity">
+            <summary>
+            The density value of the GlobalNodeId Column of the corresponding node table.
+            This value is used to estimate the join selectivity of A-->B. 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Runtime.MatchNode.Predicates">
+            <summary>
+            Conjunctive predicates from the WHERE clause that 
+            can be associated with this node variable. 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Runtime.MatchPath.ReferencePathInfo">
+            <summary>
+            True, the path is referenced in the SELECT clause and path information should be displayed
+            False, path information can be neglected
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.MatchPath.RetrievePredicatesExpression">
+            <summary>
+            Converts edge attribute predicates into a boolean expression, which is used for
+            constructing queries for retrieving edge statistics
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.ModifyTableNameVisitor">
+            <summary>
+            ModifyTableNameVisitor traverses a boolean expression and
+            1. change all the existing table name to tableName
+            2. attach tableName to all the columns not bound with any table
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.NormalizeWColumnReferenceExpressionVisitor">
+            <summary>
+            Transfrom WColumnReferenceExpression for JsonQuery
+            e.g. After Invoke((WHERE N_0.age = 27 AND N_0.flag = true))
+            The booleanExpression.toString() will show
+            (WHERE age._value = 27 AND flag._value = true)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.QueryCompilationContext">
+            <summary>
+            QueryCompilationContext is an entity providing contexts 
+            for translating a SQL statement or a nested SQL query. 
+            The context information includes the layout of raw records produced by the execution of the SQL statement/query.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Runtime.QueryCompilationContext.RawRecordLayout">
+            <summary>
+            The layout of the raw records produced by the execution of the current query.
+            A raw record is a collection of fields, each having a composite name in a pair of (table alias, column name)
+            and pointing to the field's offset in the record and the field's type. 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Runtime.QueryCompilationContext.SideEffectStates">
+            <summary>
+            A collection of states of side effect functions. A function's state
+            implements interfaces of aggregation functions, as each record passes through
+            the function, the function's state is updated.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.QueryCompilationContext.AddField(System.String,System.String,Microsoft.Azure.Graphs.SyntaxTree.ColumnGraphType,System.Boolean)">
+            <summary>
+            Adds a new field to the raw records when a new execution operator is added to the execution plan.
+            </summary>
+            <param name="tableAlias"></param>
+            <param name="columnName"></param>
+            <param name="type"></param>
+            <param name="insertAtFront"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.QueryCompilationContext.LocateColumnReference(System.String,System.String)">
+            <summary>
+            Given a column reference, i.e., the composite key of (table alias, column name), 
+            return its offset in raw records produced by the SQL statement.
+            </summary>
+            <param name="tableAlias">Table alias</param>
+            <param name="columnName">Column name</param>
+            <returns>The offset of the column reference in the raw records</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.QueryCompilationContext.LocateColumnReference(Microsoft.Azure.Graphs.Runtime.WColumnReferenceExpression)">
+            <summary>
+            Given a column reference, returns its offset in the raw records produced by the SQL statement.
+            </summary>
+            <param name="columnReference"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.ScalarExprTableReferenceVisitor">
+            <summary>
+            ScalarExprTableReferenceVisitor traverses a scalar expression and returns all the tables and properties it references
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.Runtime.Statistics.Histogram">
+            <summary>
+            The height-balanced histograms. 
+            The kay of each entry is the sampled value of GlobalNodeId column,
+            the value is a tuple (Count, IsPopular) representing the count of 
+            the sampled value and whether the sampled value is popular.
+            Popular sampled value means that the sampled value has been chosen
+            more than once (Count > 1).
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Statistics.UpdateHistogram(Microsoft.Azure.Graphs.Runtime.Statistics,Microsoft.Azure.Graphs.Runtime.Statistics,System.Double@)">
+            <summary>
+            Merger Two Histograms
+            </summary>
+            <param name="curStatistics"></param>
+            <param name="newStatistics"></param>
+            <param name="joinSelectivity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.Statistics.UpdateEdgeHistogram(Microsoft.Azure.Graphs.Runtime.MatchEdge,System.Collections.Generic.List{System.Int64})">
+            <summary>
+            Updates the statistics histogram for the edge given the sink id list.
+            Bucket size is pre-defined
+            </summary>
+            <param name="edge"></param>
+            <param name="sinkList">sink id of the edge sampling</param>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.TemporaryTableHeader">
+            <summary>
+            TemporaryTableHeader defines the columns of a temporary table
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Runtime.WBooleanBinaryExpression.Conjunction(Microsoft.Azure.Graphs.Runtime.WBooleanExpression,Microsoft.Azure.Graphs.Runtime.WBooleanExpression)">
+            <summary>
+            Conjuncts two boolean expressions
+            </summary>
+            <param name="joinCondition">The first boolean expression</param>
+            <param name="newCondition">The second boolean expression</param>
+            <returns>The conjunctive boolean expression</returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.Runtime.WColumnReferenceExpression">
+            <summary>
+            A reference to a column. 
+            
+            Columns in the SELECT clause are wrapped by the WSelectElement class.
+            This class represents columns as scalar expressions.
+            In particular, when WColumnReferenceExpression is of type *, it appears in function calls such as COUNT(*)
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphCommand.g">
+            <summary>
+            This method is named g() to mimic Gremlin.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.GraphException">
+            <summary>
+            Base class for any graph library-focused exceptions
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.GraphException.ErrorCode">
+            <summary>
+            Error code associated with the exception.
+            Semantic for graph error codes is described in tinkerpop's provider documentation:
+            http://tinkerpop.apache.org/docs/current/dev/provider/#_graph_driver_provider_requirements
+            General detail regarding HTTP Error codes as described by RFC 2615:
+            http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.GraphException.Frame">
+            <summary>
+            Current logical frame (name of innermost execution scope)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.GraphException.Context">
+            <summary>
+            Current execution context name, as set by the client caller code
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.GraphException.RequestId">
+            <summary>
+            Unique identifier (optionally provided by the client caller code) for the
+            request assocaited with the execution at the moment when the exception was created/thrown.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphException.#ctor(Microsoft.Azure.Graphs.GraphStatusCode,System.Exception,System.String)">
+            <summary>
+            Constructor. Use it when an inner exception was caught and we need to wrap it.
+            </summary>
+            <param name="errorCode">error code, matches HTTP RFC 2616</param>
+            <param name="innerException"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphException.#ctor(Microsoft.Azure.Graphs.GraphException,System.String)">
+            <summary>
+            Constructor. Use it for server side issues when an inner exception was caught and we need to wrap it.
+            </summary>
+            <param name="innerException"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphException.#ctor(Microsoft.Azure.Graphs.GraphStatusCode,System.String)">
+            <summary>
+            Constructor. Use it when no inner (e.g. external) exception is available.
+            </summary>
+            <param name="errorCode">error code, matches HTTP RFC 2616</param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphException.ToString">
+            <summary>
+            Converts an exception to a display string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphException.GetFullExceptionStack(System.Exception)">
+            <summary>
+            Get fully expanded exception stack (optionally with stack traces included).
+            </summary>
+            <param name="exception">exception for which we want to obtain the full stack</param>
+            <returns>call stack for the exception and for all inner exceptions</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphException.GetGraphStatusCode(System.Exception)">
+            <summary>
+            Returns the Graph Status Code that can be associated with a given exception.
+            For aggregated exceptions will return the status code associated with first non-timeout inner exception.
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphException.AppendExceptionDetails(System.Exception,System.Text.StringBuilder)">
+            <summary>
+            Appends information about an exception.
+            </summary>
+            <param name="exception"></param>
+            <param name="builder"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphException.GetDefaultStatusCode(System.Exception)">
+            <summary>
+            Return default Graph Status Code for a given exception.
+            </summary>
+            <param name="exception"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.GraphException.CaptureExecutionContext">
+            <summary>
+            Internal helper method that captures information about execution context at the 
+            moment when the exceptionw as created/thrown
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.SyntaxTree.GremlinParser.ReadToken(System.Collections.Generic.List{Microsoft.Azure.Graphs.SyntaxTree.GremlinParser.Token},Microsoft.Azure.Graphs.SyntaxTree.GremlinParser.TokenType,System.Int32@,System.String@,System.Int32@)">
+            <summary>
+            Read a spcific token by type at pNextToken, and return the value of it
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.SyntaxTree.GremlinParser.ReadToken(System.Collections.Generic.List{Microsoft.Azure.Graphs.SyntaxTree.GremlinParser.Token},Microsoft.Azure.Graphs.SyntaxTree.GremlinParser.TokenType,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Read a spcific token by type at pNextToken, and return the index of keyword/identifier
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.SyntaxTree.GremlinParser.ReadToken(System.Collections.Generic.List{Microsoft.Azure.Graphs.SyntaxTree.GremlinParser.Token},System.String,System.Int32@,System.String@,System.Int32@)">
+            <summary>
+            Read a spcific token by value at pNextToken
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.SyntaxTree.GremlinParser.LexicalAnalyzer.Tokenize(System.String,System.String@)">
+            <summary>
+            Tokenize the input script
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.ParameterModifier">
+            <summary>
+            Values must match ParameterModifier Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.ProcedureOptionKind">
+            <summary>
+            Values must match ProcedureOptionKind Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.SqlDataTypeOption">
+            <summary>
+            Values must match SqlDataTypeOption Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WBinaryQueryExpression">
+            <summary>
+            Represents the union/except/intersect of SELECT queries.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WCursorOption">
+            <summary>
+            Cursor Type as specified when defining a Cursor
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WCursorOptionKind">
+            <summary>
+            Values must match CursorOptionKind Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WDeleteUpdateAction">
+            <summary>
+            Values must match DeleteUpdateAction Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WIndexType">
+            <summary>
+            Index Type as specified when defining an Index
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WIndexTypeKind">
+            <summary>
+            Values must match IndexTypeKind Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.SyntaxTree.WInsertNodeSpecification.ConstructNode">
+            <summary>
+            Construct a Json's string which contains all the information about the new node.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WInsertOption">
+            <summary>
+            Values must match InsertOption Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WLiteral">
+            <summary>
+            A literal expression. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WLiteralOptimizerHint">
+            <summary>
+            Optimizer Hint is a literal
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WLiteralType">
+            <summary>
+            Values must match LiteralType Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.SyntaxTree.WMatchPath.PathEdgeList">
+            <summary>
+            A list of edges in the path expression, each in a pair of (source node table reference, edge column reference)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.SyntaxTree.WMatchPath.Tail">
+            <summary>
+            The tail of the path expression
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.SyntaxTree.WMatchPath.IsReversed">
+            <summary>
+            True if paths in PathEdgeList are reversed edges
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WMaxLiteral">
+            <summary>
+            A literal for a string
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WNodeTableColumnRole">
+            <summary>
+            Values must match NoteTableColumnRole Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WNodeTableRole">
+            <summary>
+            Values must match NodeTableRole Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WOptimizeForOptimizerHint">
+            <summary>
+            'Optimize For' Hint
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WOptimizerHintKind">
+            <summary>
+            Values must match OptimizerHintKind Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WParameterizedDataTypeReference">
+            <summary>
+            Syntax tree node of data type with parameters, corresponding to standard SQL data type and User-defined data type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.SyntaxTree.WPropertyExpression.Cardinality">
+            <summary>
+            Indicate whether this property is to append(=list) or override(=single)
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.SyntaxTree.WPropertyExpression.Key">
+            <summary>
+            Property's name
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.SyntaxTree.WPropertyExpression.Value">
+            <summary>
+            Property's value
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.SyntaxTree.WPropertyExpression.MetaProperties">
+            <summary>
+            Only valid for vertex property
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WQueryParenthesisExpression">
+            <summary>
+            SELECT query within a parenthesis
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WSelectQueryExpression">
+            <summary>
+            The base class of the SELECT query hierarchy
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WSeparatorType">
+            <summary>
+            Values must match SeparatorType Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WSparseColumnOption">
+            <summary>
+            Values must match SparseColumnOption Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WCreateViewStatement">
+            <summary>
+            Syntax tree of a CREATE VIEW statement
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WCursorDefinition">
+            <summary>
+            Statement that defines a cursor
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WCreateTableStatement">
+            <summary>
+            Syntax tree of a CREATE TABLE statement
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WOptimizerHint">
+            <summary>
+            Optimizer Hint
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WSqlUnknownStatement">
+            <summary>
+            This class represents all T-SQL statements not identified by the current parser.
+            Unidentified statements are interpreted token by token. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WStatementWithCtesAndXmlNamespaces">
+            <summary>
+            Statements with optimization hints
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WStringLiteral">
+            <summary>
+            A literal for a string
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WTableHintKind">
+            <summary>
+            Values must match TableHintType Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WTableHintsOptimizerHint">
+            <summary>
+            Table Hint part of Optimize clause
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WViewOption">
+            <summary>
+            View Option
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WViewOptionKind">
+            <summary>
+            Values must match ViewOptionKind Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WWhereClause">
+            <summary>
+            The WHERE clause consists of boolean expressions
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WXmlDataTypeOption">
+            <summary>
+            Values must match XmlDataTypeOption Enumeration (Microsoft.SqlServer.TransactSql.ScriptDom)
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WXmlDataTypeReference">
+            <summary>
+            Syntax tree node of XML data type.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WNodeTableColumn">
+            <summary>
+            Stores information of a column in a graph table, including column type, name, and its data type.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WDataTypeReference">
+            <summary>
+            Syntax tree node of data type, could be a Parameterized data type or XML data type.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WIdentityOptions">
+            <summary>
+            Syntax tree node of identity option. Identity is a property of column.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WFromClause">
+            <summary>
+            The FROM clause consists of a list of table references.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WSelectElement">
+            <summary>
+            Three types of elements in the SELECT clause:
+            1) scalar expressions.
+            2) star expressions.
+            3) local/global variables
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.SyntaxTree.WSelectStatement">
+            <summary>
+            The base class of a SELECT statement
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.SyntaxTree.WTableReference.TableAliases">
+            <summary>
+            Returns a list of table references in this WTableReference expression.
+            </summary>
+            <returns>A list of table references</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinUtil.EnsureIsValueOrPredicate(System.Object[])">
+            <summary>
+            Throws exception if arguments are not of the same value or predicate type.
+            </summary>
+            <param name="valueOrPredicates">The value or predicates.</param>
+            <exception cref="T:System.ArgumentException">Invalid value or predicate type: {predicate.GetType()}.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinUtil.EnsureIsValue(System.Object[])">
+            <summary>
+            Throws exception if arguments are not of the same value type.
+            </summary>
+            <param name="elements">The values.</param>
+            <exception cref="T:System.ArgumentException">Invalid value type: {value.GetType()}.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinUtil.EnsureIsValueOrList(System.Object[])">
+            <summary>
+            Checks if the elements are either Value or List. Throws exception if arguments are not of the same value type.
+            </summary>
+            <param name="elements">The values.</param>
+            <exception cref="T:System.ArgumentException">Invalid value type: {value.GetType()}.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinUtil.EnsureSameType(System.Object[])">
+            <summary>
+            Throws exception if argument types are not the same.
+            </summary>
+            <param name="values">The values.</param>
+            <exception cref="T:System.ArgumentException">Arguments should all be of the same type. Invalid type: {inconsistentObject.GetType()}.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinUtil.EnsureHasArgument(System.Object[])">
+            <summary>
+            Throws exception if argument is empty.
+            </summary>
+            <param name="values">The values.</param>
+            <exception cref="T:System.ArgumentException">Argument should not be empty.</exception>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinUtil.IsSameVariableType(System.Collections.Generic.List{Microsoft.Azure.Graphs.Translator.Variables.GremlinVariable})">
+            <summary>
+            Determines whether GremlinVariables are of the same type.
+            </summary>
+            <param name="variableList">The GremlinVariable list.</param>
+            <returns>true, if GremlinVariables are of the same type; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinUtil.IsSameType(System.Object[])">
+            <summary>
+            Determines whether values are of the same type.
+            </summary>
+            <param name="values">The values.</param>
+            <returns>true, if values are of the same type; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinUtil.IsValue(System.Object)">
+            <summary>
+            Determines whether argument is of a value type.
+            </summary>
+            <param name="value">The value or predicate.</param>
+            <returns>true, if argument is of a value type; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinUtil.IsValue(System.Object[])">
+            <summary>
+            Determines whether arguments are of the same value type.
+            </summary>
+            <param name="values">The values.</param>
+            <returns>true, if values are of the same type; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinUtil.IsValueOrPredicate(System.Object)">
+            <summary>
+            Determines whether argument is of a value or predicate type.
+            </summary>
+            <param name="valueOrPredicate">The value or predicate.</param>
+            <returns>true, if argument is of a value or predicate type; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinUtil.IsValueOrPredicate(System.Object[])">
+            <summary>
+            Determines whether arguments are of the same type, which is a value or predicate type.
+            </summary>
+            <param name="valueOrPredicate">The values.</param>
+            <returns>true, if arguments are of the same type; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinUtil.IsPredicate(System.Object[])">
+            <summary>
+            Determines whether arguments are all of predicate type.
+            </summary>
+            <param name="predicate">The values.</param>
+            <returns>true, if arguments are of the same type; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinUtil.FirstInconsistentObject(System.Object[])">
+            <summary>
+            Returns the first object with a inconsistent type than others, or null if no such object.
+            </summary>
+            <param name="values">The values.</param>
+            <returns>The first object with a inconsistent type than others, or null if no such object.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.Map.GremlinVOp.#ctor(System.Collections.Generic.List{System.Object})">
+            <summary>
+            gremlin supported syntax for V operation: g.V("id1", "id2", "id3", ....)
+            our extension: one additional overload where users can provide partition keys
+                         : g.V(["pk1", "id1"], ["pk2", "id2"], ["pk3", "id3"], ....)
+            </summary>
+            <param name="vertexIdsOrElements"></param>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.Variables.GremlinVariable.PopulateLocalPath">
+            <summary>
+            This function is used to populate local paths in a subquery,
+            so it should be overrided by any GremlinVariable with a subquery, 
+            including: Local/Optional/Union/Choose/Repeat.
+            Note that although Coalesce/FlatMap/Map/Project have subqueries, 
+            they are treated as one step in Gremlin queries, and hence do not override this function.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.Variables.GremlinVariable.PopulateStepProperty(System.String)">
+            <summary>
+            This function is used to populate properties in each path step. 
+            If a path step involves a subquery, then this funcion will also populate 
+            the properties of each step in the subquery. 
+            In the base case, it will populate the properties for itself. 
+            This function should be overrided by any GremlinVariable with a subquery,
+            including Local/Optional/Union/Choose/Repeat.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.Variables.GremlinVariable.FetchAllVars">
+            <summary>
+            This method is used for the algorithm of the Repeat Step 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.Variables.GremlinVariable.AddE(Microsoft.Azure.Graphs.Translator.GremlinToSqlContext,System.String,System.Collections.Generic.List{Microsoft.Azure.Graphs.Translator.GremlinProperty},Microsoft.Azure.Graphs.Translator.GremlinToSqlContext,Microsoft.Azure.Graphs.Translator.GremlinToSqlContext)">
+            <summary>
+            Step Funtions
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.Variables.GremlinVariable.HasKeyOrValue(Microsoft.Azure.Graphs.Translator.GremlinToSqlContext,Microsoft.Azure.Graphs.Translator.Filter.GremlinHasType,System.Collections.Generic.List{System.Object})">
+            <summary>
+            Only valid for VertexProperty
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.Graphs.Translator.Variables.GremlinAddVVariable.PropertyFromAddVParameters">
+            <summary>
+            g.addV("name", "marko", "name", "mike").property("name", "peter")
+            => {"name": {cardinality: cardinality.single, label: "peter"}  marko and mike will be covered
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.Graphs.Translator.GremlinToSqlContext.ToString">
+            <summary>
+            Pretty print Gremlin to Sql Query Spec
+            </summary>
+            <returns>String representation for the query spec</returns>
+        </member>
+        <member name="T:Microsoft.Azure.Graphs.OutputFormat">
+            <summary>
+            Defines the output formats for results from gremlin queries.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.OutputFormat.Regular">
+            <summary>
+            Use the gremlin console format for outputs.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.OutputFormat.GraphSONCompact">
+            <summary>
+            Use the GraphSON compact format for outputs.
+            Output will return valid GraphSON, without including adjacency information.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Azure.Graphs.OutputFormat.GraphSON">
+            <summary>
+            Use full GraphSON format for outputs.
+            Output will return valid GraphSON, including adjacency information.
+            </summary>
+        </member>
+        <member name="T:AssemblyRef">
+            <summary>
+            Sets public key string for friend assemblies.
+            </summary>
+        </member>
+        <member name="F:AssemblyRef.ProductPublicKey">
+            <summary>ProductPublicKey is an official MS supported public key for external releases. TestPublicKey is an unsupported strong key for testing and internal use only</summary>
+        </member>
+    </members>
+</doc>
