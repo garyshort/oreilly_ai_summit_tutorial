@@ -1,0 +1,40 @@
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\obj\Debug\Lab3-Bot-Start.csprojResolveAssemblyReference.cache
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Bot Application.dll.config
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Bot Application.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Bot Application.pdb
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Autofac.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Chronic.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Microsoft.Bot.Builder.Autofac.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Microsoft.Bot.Builder.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Microsoft.Bot.Connector.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Microsoft.Rest.ClientRuntime.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Newtonsoft.Json.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\System.Net.Http.Formatting.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\System.Web.Http.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\System.Web.Http.WebHost.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Autofac.xml
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Microsoft.Bot.Builder.xml
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Microsoft.Bot.Builder.Autofac.xml
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Microsoft.Bot.Connector.xml
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\Newtonsoft.Json.xml
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\System.Net.Http.Formatting.xml
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\System.Web.Http.xml
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\System.Web.Http.WebHost.xml
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\cs\Microsoft.Bot.Builder.resources.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\obj\Debug\Bot Application.dll
+C:\Users\galwarr\GitHub\Lab3-Bot-Start\obj\Debug\Bot Application.pdb
